@@ -8,6 +8,133 @@
 		<link rel="stylesheet" href="./style/style.css" />
 	</head>
 	<body>
+		<!-- Header -->
+		<header>
+			<div class="logo">
+				<h1>Tasky</h1>
+			</div>
+			<div class="user">
+				<div class="user-image">
+					<img src="" alt="" />
+				</div>
+				<p class="user-name">{UserName}</p>
+			</div>
+		</header>
+		<!-- Landing Page -->
+		<main class="landing-page">
+			<div class="container">
+				<!-- Welcome Section -->
+				<section class="welcome">
+					<h1>Good To See You, <span>{UserName}!</span></h1>
+				</section>
+				<!-- Add Tasks -->
+				<section class="add-task">
+					<h2>Add New Tasks Here</h2>
+					<form action="#">
+						<input
+							type="text"
+							name="task-name"
+							class="task-name"
+							placeholder="Add Task"
+						/>
+						<input
+							type="number"
+							name="task-time"
+							class="task-time"
+							placeholder="Hrs"
+						/>
+						<input type="submit" />
+					</form>
+				</section>
+				<h3>No Tasks Added Currently!</h3>
+				<section class="tasks-list">
+					<!-- if there is no tasks: -->
+					<!-- if user add new tasks: -->
+
+					<div class="task-box">
+						<div class="task-data">
+							<p>{Task-Name}</p>
+							<p>{Task-Time}</p>
+							<p>{Task-Status}</p>
+						</div>
+						<div class="task-action">
+							<input type="checkbox" name="task-done" class="task-done" />
+							<button class="edit-button">Edit</button>
+							<dialog class="edit-modal">
+								<form>
+									<p>Edit Task Name</p>
+									<input type="text" />
+									<button formmethod="dialog" type="submit">Cancel</button>
+									<button type="submit">Submit</button>
+								</form>
+							</dialog>
+							<button class="remove-button">remove</button>
+							<dialog class="remove-modal">
+								<form>
+									<p>Are You Sure You Want To Remove The Task?</p>
+									<button formmethod="dialog" type="submit">No</button>
+									<button type="submit">Yes</button>
+								</form>
+							</dialog>
+						</div>
+					</div>
+					<div class="task-box">
+						<div class="task-data">
+							<p>{Task-Name}</p>
+							<p>{Task-Time}</p>
+							<p>{Task-Status}</p>
+						</div>
+						<div class="task-action">
+							<input type="checkbox" name="task-done" class="task-done" />
+							<button class="edit-button">Edit</button>
+							<dialog class="edit-modal">
+								<form>
+									<p>Edit Task Name</p>
+									<input type="text" />
+									<button formmethod="dialog" type="submit">Cancel</button>
+									<button type="submit">Submit</button>
+								</form>
+							</dialog>
+							<button class="remove-button">remove</button>
+							<dialog class="remove-modal">
+								<form>
+									<p>Are You Sure You Want To Remove The Task?</p>
+									<button formmethod="dialog" type="submit">No</button>
+									<button type="submit">Yes</button>
+								</form>
+							</dialog>
+						</div>
+					</div>
+					<div class="task-box">
+						<div class="task-data">
+							<p>{Task-Name}</p>
+							<p>{Task-Time}</p>
+							<p>{Task-Status}</p>
+						</div>
+						<div class="task-action">
+							<input type="checkbox" name="task-done" class="task-done" />
+							<button class="edit-button">Edit</button>
+							<dialog class="edit-modal">
+								<form>
+									<p>Edit Task Name</p>
+									<input type="text" />
+									<button formmethod="dialog" type="submit">Cancel</button>
+									<button type="submit">Submit</button>
+								</form>
+							</dialog>
+							<button class="remove-button">remove</button>
+							<dialog class="remove-modal">
+								<form>
+									<p>Are You Sure You Want To Remove The Task?</p>
+									<button formmethod="dialog" type="submit">No</button>
+									<button type="submit">Yes</button>
+								</form>
+							</dialog>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
 		<script src="./script/main.js"></script>
 	</body>
 </html>
