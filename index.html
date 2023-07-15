@@ -18,6 +18,7 @@
 					<img src="" alt="" />
 				</div>
 				<p class="user-name">{UserName}</p>
+				<button><i class="fa-solid fa-gear"></i></button>
 			</div>
 		</header>
 		<!-- Landing Page -->
@@ -43,12 +44,15 @@
 							class="task-time"
 							placeholder="Hrs"
 						/>
-						<input type="submit" />
+
+						<input type="submit" value="Add Task" />
 					</form>
 				</section>
-				<h3>No Tasks Added Currently!</h3>
+				<!-- if there is no tasks: -->
+				<section class="no-tasks">
+					<h3>No Tasks Added Currently!</h3>
+				</section>
 				<section class="tasks-list">
-					<!-- if there is no tasks: -->
 					<!-- if user add new tasks: -->
 
 					<div class="task-box">
@@ -135,6 +139,14 @@
 				</section>
 			</div>
 		</main>
+		<footer>
+			<p>Copyright 2023</p>
+		</footer>
 		<script src="./script/main.js"></script>
+		<!-- Font Awesome -->
+		<script
+			src="https://kit.fontawesome.com/eb7dada2f7.js"
+			crossorigin="anonymous"
+		></script>
 	</body>
 </html>
