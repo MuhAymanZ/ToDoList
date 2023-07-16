@@ -4,8 +4,18 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>To Do List App</title>
+		<title>Tasky</title>
+		<!-- Main Styles -->
+
 		<link rel="stylesheet" href="./style/style.css" />
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400&family=Tajawal:wght@300;400;500;700;800;900&family=Ubuntu:ital,wght@0,300;0,400;1,300&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<!-- Header -->
@@ -15,10 +25,11 @@
 			</div>
 			<div class="user">
 				<div class="user-image">
-					<img src="" alt="" />
+					<!-- if user doesn't add photo in the account:  -->
+					<img src="./media/images/user.svg" alt="" />
+					<a href="#"><i class="fa-solid fa-gear fa-spin settings"></i></a>
 				</div>
-				<p class="user-name">{UserName}</p>
-				<button><i class="fa-solid fa-gear"></i></button>
+				<p class="user-name">Mohamed</p>
 			</div>
 		</header>
 		<!-- Landing Page -->
@@ -26,26 +37,37 @@
 			<div class="container">
 				<!-- Welcome Section -->
 				<section class="welcome">
-					<h1>Good To See You, <span>{UserName}!</span></h1>
+					<h1>Good To See You, <span>Mohamed</span>!</h1>
+					<p>Stay Productive</p>
 				</section>
 				<!-- Add Tasks -->
 				<section class="add-task">
-					<h2>Add New Tasks Here</h2>
+					<h3>Add New Tasks Here</h3>
 					<form action="#">
-						<input
-							type="text"
-							name="task-name"
-							class="task-name"
-							placeholder="Add Task"
-						/>
-						<input
-							type="number"
-							name="task-time"
-							class="task-time"
-							placeholder="Hrs"
-						/>
+						<div class="inputGroup">
+							<input
+								type="text"
+								name="input-task-name"
+								class="input-task-name"
+								autocomplete="off"
+								required=""
+								;
+							/>
+							<label for="name">Task Name</label>
+						</div>
 
-						<input type="submit" value="Add Task" />
+						<div class="inputGroup">
+							<input
+								type="number"
+								name="input-task-time"
+								class="input-task-time"
+								autocomplete="off"
+								required=""
+							/>
+							<label for="name">Hours To Finish</label>
+						</div>
+
+						<input type="submit" value=" + " class="submit-task" />
 					</form>
 				</section>
 				<!-- if there is no tasks: -->
@@ -57,81 +79,176 @@
 
 					<div class="task-box">
 						<div class="task-data">
-							<p>{Task-Name}</p>
-							<p>{Task-Time}</p>
-							<p>{Task-Status}</p>
+							<div class="task-name" id="task1">
+								<p>Finish my homework</p>
+							</div>
+							<p class="task-time">2 Hours</p>
+							<p class="task-status in-prog">In-Progress</p>
 						</div>
 						<div class="task-action">
-							<input type="checkbox" name="task-done" class="task-done" />
-							<button class="edit-button">Edit</button>
+							<!-- <div class="checkbox-div"> -->
+							<label class="checkbox-container">
+								<input type="checkbox" />
+								<svg viewBox="0 0 64 64" height="2.2rem" width="2.2rem">
+									<path
+										d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+										pathLength="575.0541381835938"
+										class="path"
+									></path>
+								</svg>
+							</label>
+							<!-- </div> -->
+							<button class="action-btn edit-button">
+								<i class="fa-solid fa-pen-to-square"></i>
+							</button>
 							<dialog class="edit-modal">
 								<form>
 									<p>Edit Task Name</p>
 									<input type="text" />
-									<button formmethod="dialog" type="submit">Cancel</button>
 									<button type="submit">Submit</button>
+									<button formmethod="dialog" type="submit">Cancel</button>
 								</form>
 							</dialog>
-							<button class="remove-button">remove</button>
+							<button class="action-btn remove-button">
+								<i class="fa-solid fa-trash"></i>
+							</button>
 							<dialog class="remove-modal">
 								<form>
 									<p>Are You Sure You Want To Remove The Task?</p>
-									<button formmethod="dialog" type="submit">No</button>
 									<button type="submit">Yes</button>
+									<button formmethod="dialog" type="submit">No</button>
 								</form>
 							</dialog>
 						</div>
 					</div>
 					<div class="task-box">
 						<div class="task-data">
-							<p>{Task-Name}</p>
-							<p>{Task-Time}</p>
-							<p>{Task-Status}</p>
+							<div class="task-name" id="task2">
+								<p>Finish my homework asdfa</p>
+							</div>
+							<p class="task-time">2 Hours</p>
+							<p class="task-status in-prog">In-Progress</p>
 						</div>
 						<div class="task-action">
-							<input type="checkbox" name="task-done" class="task-done" />
-							<button class="edit-button">Edit</button>
+							<!-- <div class="checkbox-div"> -->
+							<label class="checkbox-container">
+								<input type="checkbox" />
+								<svg viewBox="0 0 64 64" height="2.2rem" width="2.2rem">
+									<path
+										d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+										pathLength="575.0541381835938"
+										class="path"
+									></path>
+								</svg>
+							</label>
+							<!-- </div> -->
+							<button class="action-btn edit-button">
+								<i class="fa-solid fa-pen-to-square"></i>
+							</button>
 							<dialog class="edit-modal">
 								<form>
 									<p>Edit Task Name</p>
 									<input type="text" />
-									<button formmethod="dialog" type="submit">Cancel</button>
 									<button type="submit">Submit</button>
+									<button formmethod="dialog" type="submit">Cancel</button>
 								</form>
 							</dialog>
-							<button class="remove-button">remove</button>
+							<button class="action-btn remove-button">
+								<i class="fa-solid fa-trash"></i>
+							</button>
 							<dialog class="remove-modal">
 								<form>
 									<p>Are You Sure You Want To Remove The Task?</p>
-									<button formmethod="dialog" type="submit">No</button>
 									<button type="submit">Yes</button>
+									<button formmethod="dialog" type="submit">No</button>
 								</form>
 							</dialog>
 						</div>
 					</div>
 					<div class="task-box">
 						<div class="task-data">
-							<p>{Task-Name}</p>
-							<p>{Task-Time}</p>
-							<p>{Task-Status}</p>
+							<div class="task-name" id="task3">
+								<p>Finish my homework</p>
+							</div>
+							<p class="task-time">2 Hours</p>
+							<p class="task-status in-prog">In-Progress</p>
 						</div>
 						<div class="task-action">
-							<input type="checkbox" name="task-done" class="task-done" />
-							<button class="edit-button">Edit</button>
+							<!-- <div class="checkbox-div"> -->
+							<label class="checkbox-container">
+								<input type="checkbox" />
+								<svg viewBox="0 0 64 64" height="2.2rem" width="2.2rem">
+									<path
+										d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+										pathLength="575.0541381835938"
+										class="path"
+									></path>
+								</svg>
+							</label>
+							<!-- </div> -->
+							<button class="action-btn edit-button">
+								<i class="fa-solid fa-pen-to-square"></i>
+							</button>
 							<dialog class="edit-modal">
 								<form>
 									<p>Edit Task Name</p>
 									<input type="text" />
-									<button formmethod="dialog" type="submit">Cancel</button>
 									<button type="submit">Submit</button>
+									<button formmethod="dialog" type="submit">Cancel</button>
 								</form>
 							</dialog>
-							<button class="remove-button">remove</button>
+							<button class="action-btn remove-button">
+								<i class="fa-solid fa-trash"></i>
+							</button>
 							<dialog class="remove-modal">
 								<form>
 									<p>Are You Sure You Want To Remove The Task?</p>
-									<button formmethod="dialog" type="submit">No</button>
 									<button type="submit">Yes</button>
+									<button formmethod="dialog" type="submit">No</button>
+								</form>
+							</dialog>
+						</div>
+					</div>
+					<div class="task-box">
+						<div class="task-data">
+							<div class="task-name" id="task4">
+								<p>Finish my homework asfkopasjdasidj aposdj aposjd paosd</p>
+							</div>
+							<p class="task-time">2 Hours</p>
+							<p class="task-status in-prog">In-Progress</p>
+						</div>
+						<div class="task-action">
+							<!-- <div class="checkbox-div"> -->
+							<label class="checkbox-container">
+								<input type="checkbox" />
+								<svg viewBox="0 0 64 64" height="2.2rem" width="2.2rem">
+									<path
+										d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+										pathLength="575.0541381835938"
+										class="path"
+									></path>
+								</svg>
+							</label>
+							<!-- </div> -->
+							<button class="action-btn edit-button">
+								<i class="fa-solid fa-pen-to-square"></i>
+							</button>
+							<dialog class="edit-modal">
+								<form>
+									<p>Edit Task Name</p>
+									<input type="text" />
+									<button type="submit">Submit</button>
+									<button formmethod="dialog" type="submit">Cancel</button>
+								</form>
+							</dialog>
+							<button class="action-btn remove-button">
+								<i class="fa-solid fa-trash"></i>
+							</button>
+							<dialog class="remove-modal">
+								<form>
+									<p>Are You Sure You Want To Remove The Task?</p>
+									<button type="submit">Yes</button>
+									<button formmethod="dialog" type="submit">No</button>
 								</form>
 							</dialog>
 						</div>
@@ -142,7 +259,8 @@
 		<footer>
 			<p>Copyright 2023</p>
 		</footer>
-		<script src="./script/main.js"></script>
+		<script type="module" src="./script/main.js"></script>
+		<script type="module" src="./script/add-css-rule.js"></script>
 		<!-- Font Awesome -->
 		<script
 			src="https://kit.fontawesome.com/eb7dada2f7.js"
