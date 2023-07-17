@@ -31,7 +31,7 @@ openModal(removeButton);
 const taskCheckBox = document.querySelectorAll(
 	".task-action input[type='checkbox']"
 );
-const checkedAudio = new Audio("../media/sounds/Check.mp3");
+const checkedAudio = new Audio("media/sounds/Check.mp3");
 
 taskCheckBox.forEach((check, index) => {
 	index++;
