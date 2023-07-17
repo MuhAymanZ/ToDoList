@@ -87,6 +87,30 @@ input[type="submit"] {
 	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
 	cursor: pointer;
 }
+input[type="text"],
+textarea {
+	font-size: 100%;
+	/* padding: 0.4em; */
+	outline: none;
+	border: 2px solid rgb(200, 200, 200);
+	background-color: transparent;
+	border-radius: 3rem;
+	color: var(--text);
+}
+textarea {
+	padding: 1rem;
+	border-radius: 2rem;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.col {
+	display: flex;
+	flex-direction: column;
+}
 
 /* Container */
 .container {
@@ -219,6 +243,67 @@ header .user-name {
 	padding: 1rem;
 	font-size: 2.5rem;
 }
+/* Input Styles */
+.add-task .inputGroup {
+	font-family: "Segoe UI", sans-serif;
+	margin: 1em 0 1em 0;
+	max-width: 190px;
+	position: relative;
+}
+
+.add-task .inputGroup input {
+	font-size: 100%;
+	padding: 0.8em;
+	outline: none;
+	border: 2px solid rgb(200, 200, 200);
+	background-color: transparent;
+	border-radius: 3rem;
+	width: 100%;
+	color: var(--text);
+}
+
+.add-task .inputGroup label,
+.add-task .task-description-input label {
+	font-size: 100%;
+	position: absolute;
+	left: 0;
+	padding: 0.8em;
+	margin-left: 0.5em;
+	pointer-events: none;
+	transition: all 0.3s ease;
+	color: var(--text);
+}
+
+.add-task .inputGroup :is(input:focus, input:valid) ~ label {
+	transform: translateY(-50%) scale(0.9);
+	margin-left: 1.3em;
+	padding: 0.4em;
+}
+
+.add-task .inputGroup :is(input:focus, input:valid),
+.add-task .task-description-input :is(textarea:focus) {
+	border-color: rgb(150, 150, 200);
+	border-top: none;
+	border-radius: 0rem 0rem 1rem 1rem;
+}
+.add-task .task-description-input {
+	position: relative;
+	margin: 2.5rem 0;
+}
+.add-task .task-description-input label {
+	position: absolute;
+	left: 0;
+	padding: 0.8em;
+	margin-left: 0.5em;
+	color: var(--text);
+	pointer-events: none;
+	transition: all 0.3s ease;
+}
+.add-task .task-description-input :is(textarea:focus) ~ label {
+	transform: translateY(-50%) scale(0.9);
+	/* margin-left: 1.3em; */
+	padding: 0.4em;
+}
 
 /* when there's no tasks: */
 .no-tasks {
@@ -234,6 +319,7 @@ header .user-name {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 10rem;
 }
 .task-box {
 	display: flex;
@@ -243,15 +329,28 @@ header .user-name {
 	flex-wrap: wrap;
 	margin: 1.5rem;
 	padding: 2rem;
-	border: 1px solid #000;
+
 	background-color: var(--secondary-color);
 	border-radius: 1rem;
 	width: 70%;
+	box-shadow: 0px 0px 260px -61px black;
 }
+
+@media (max-width: 768px) {
+	.task-box {
+		flex-direction: column;
+		/* text-align: center; */
+	}
+	.task-box p {
+		text-align: center;
+	}
+}
+
 .task-box .task-action {
 	display: flex;
 	gap: 1rem;
 	align-items: center;
+	flex-direction: row;
 }
 
 /* ?if in progress: */
@@ -263,6 +362,10 @@ header .user-name {
 
 .task-box .task-status.done {
 	color: var(--Done);
+}
+
+.task-box :is(.task-time, .task-status) {
+	font-size: 1.4rem;
 }
 
 .task-box :is(.edit-modal, .remove-modal) form {
@@ -287,85 +390,22 @@ header .user-name {
 	transition: all 0.8s ease;
 }
 
-/* Footer */
-
-footer {
-	text-align: center;
-	/* background-color: #bbc2d8; */
-	padding: 1rem;
-	font-size: 1.2rem;
-	border: 1px solid #000;
-}
-
-/* Input Styles */
-.inputGroup {
-	font-family: "Segoe UI", sans-serif;
-	margin: 1em 0 1em 0;
-	max-width: 190px;
-	position: relative;
-}
-
-.inputGroup input {
-	font-size: 100%;
-	padding: 0.8em;
-	outline: none;
-	border: 2px solid rgb(200, 200, 200);
-	background-color: transparent;
-	border-radius: 3rem;
-	width: 100%;
-	color: var(--text);
-}
-input[type="text"] {
-	font-size: 100%;
-	/* padding: 0.4em; */
-	outline: none;
-	border: 2px solid rgb(200, 200, 200);
-	background-color: transparent;
-	border-radius: 3rem;
-	width: 100%;
-	color: var(--text);
-}
-
-.inputGroup label {
-	font-size: 100%;
-	position: absolute;
-	left: 0;
-	padding: 0.8em;
-	margin-left: 0.5em;
-	pointer-events: none;
-	transition: all 0.3s ease;
-	color: var(--text);
-}
-
-.inputGroup :is(input:focus, input:valid) ~ label {
-	transform: translateY(-50%) scale(0.9);
-	margin: 0em;
-	margin-left: 1.3em;
-	padding: 0.4em;
-}
-
-.inputGroup :is(input:focus, input:valid) {
-	border-color: rgb(150, 150, 200);
-	border-top: none;
-	border-radius: 0rem 0rem 1rem 1rem;
-}
-
 /* Check Box Style */
-.checkbox-container {
+.task-box .checkbox-container {
 	cursor: pointer;
 	height: 2.2rem;
 	margin-right: 1rem;
 }
 
-.checkbox-container input {
+.task-box .checkbox-container input {
 	display: none;
 }
 
-.checkbox-container svg {
+.task-box .checkbox-container svg {
 	overflow: visible;
 }
 
-.path {
+.task-box .path {
 	fill: none;
 	stroke: white;
 	stroke-width: 6;
@@ -376,14 +416,14 @@ input[type="text"] {
 	stroke-dashoffset: 0;
 }
 
-.checkbox-container input:checked ~ svg .path {
+.task-box .checkbox-container input:checked ~ svg .path {
 	stroke-dasharray: 70.5096664428711 9999999;
 	stroke-dashoffset: -262.2723388671875;
 }
 
 /* edit button */
 
-.action-btn {
+.task-box .action-btn {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -399,9 +439,19 @@ input[type="text"] {
 	text-align: center;
 	color: var(--secondary-color);
 }
-.action-btn.remove-button {
+.task-box .action-btn.remove-button {
 	background-color: rgb(255, 65, 65);
 }
-.action-btn.edit-button {
+.task-box .action-btn.edit-button {
 	background-color: rgb(255, 214, 65);
+}
+
+/* Footer */
+
+footer {
+	text-align: center;
+	/* background-color: #bbc2d8; */
+	padding: 1rem;
+	font-size: 1.2rem;
+	border: 1px solid #000;
 }
